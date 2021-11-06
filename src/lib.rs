@@ -176,7 +176,10 @@ pub mod prelude {
     pub use crate::arraystring::ArrayString;
     pub use crate::drain::Drain;
     pub use crate::error::{OutOfBounds, Utf16, Utf8};
-    pub use crate::{generic::Capacity, CacheString, MaxString, SmallString};
+    pub use crate::generic::Capacity;
+    #[cfg_attr(docs_rs_workaround, doc(cfg(feature = "impl-all")))]
+    #[cfg(feature = "impl-all")]
+    pub use crate::{CacheString, MaxString, SmallString};
 }
 
 pub use crate::arraystring::ArrayString;
@@ -815,6 +818,8 @@ mod cache_string {
         }
     }
 }
+#[cfg_attr(docs_rs_workaround, doc(cfg(feature = "impl-all")))]
+#[cfg(feature = "impl-all")]
 pub use cache_string::*;
 
 #[cfg(test)]
