@@ -2,6 +2,7 @@
 
 use typenum::*;
 
+#[macro_export]
 macro_rules! impl_generic_array {
     ($($type: ty),*) => {
         $(
